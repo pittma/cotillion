@@ -1,6 +1,7 @@
 ---
 title: W-Types, and how?
 ---
+
 <!--
 ```
 {-# OPTIONS --without-K #-}
