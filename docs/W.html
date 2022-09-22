@@ -4,165 +4,27 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>W</title>
-  <style>
-    html {
-      line-height: 1.5;
-      font-family: Georgia, serif;
-      font-size: 20px;
-      color: #1a1a1a;
-      background-color: #fdfdfd;
-    }
-    body {
-      margin: 0 auto;
-      max-width: 36em;
-      padding-left: 50px;
-      padding-right: 50px;
-      padding-top: 50px;
-      padding-bottom: 50px;
-      hyphens: auto;
-      overflow-wrap: break-word;
-      text-rendering: optimizeLegibility;
-      font-kerning: normal;
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 0.9em;
-        padding: 1em;
-      }
-      h1 {
-        font-size: 1.8em;
-      }
-    }
-    @media print {
-      body {
-        background-color: transparent;
-        color: black;
-        font-size: 12pt;
-      }
-      p, h2, h3 {
-        orphans: 3;
-        widows: 3;
-      }
-      h2, h3, h4 {
-        page-break-after: avoid;
-      }
-    }
-    p {
-      margin: 1em 0;
-    }
-    a {
-      color: #1a1a1a;
-    }
-    a:visited {
-      color: #1a1a1a;
-    }
-    img {
-      max-width: 100%;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      margin-top: 1.4em;
-    }
-    h5, h6 {
-      font-size: 1em;
-      font-style: italic;
-    }
-    h6 {
-      font-weight: normal;
-    }
-    ol, ul {
-      padding-left: 1.7em;
-      margin-top: 1em;
-    }
-    li > ol, li > ul {
-      margin-top: 0;
-    }
-    blockquote {
-      margin: 1em 0 1em 1.7em;
-      padding-left: 1em;
-      border-left: 2px solid #e6e6e6;
-      color: #606060;
-    }
-    code {
-      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-      font-size: 85%;
-      margin: 0;
-    }
-    pre {
-      margin: 1em 0;
-      overflow: auto;
-    }
-    pre code {
-      padding: 0;
-      overflow: visible;
-      overflow-wrap: normal;
-    }
-    .sourceCode {
-     background-color: transparent;
-     overflow: visible;
-    }
-    hr {
-      background-color: #1a1a1a;
-      border: none;
-      height: 1px;
-      margin: 1em 0;
-    }
-    table {
-      margin: 1em 0;
-      border-collapse: collapse;
-      width: 100%;
-      overflow-x: auto;
-      display: block;
-      font-variant-numeric: lining-nums tabular-nums;
-    }
-    table caption {
-      margin-bottom: 0.75em;
-    }
-    tbody {
-      margin-top: 0.5em;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-    th {
-      border-top: 1px solid #1a1a1a;
-      padding: 0.25em 0.5em 0.25em 0.5em;
-    }
-    td {
-      padding: 0.125em 0.5em 0.25em 0.5em;
-    }
-    header {
-      margin-bottom: 4em;
-      text-align: center;
-    }
-    #TOC li {
-      list-style: none;
-    }
-    #TOC ul {
-      padding-left: 1.3em;
-    }
-    #TOC > ul {
-      padding-left: 0;
-    }
-    #TOC a:not(:hover) {
-      text-decoration: none;
-    }
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
+  <title>W-Types, and how?</title>
+
+  <link rel="stylesheet" href="/static/main.css">
   <link rel="stylesheet" href="Agda.css">
+  
   <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
   <![endif]-->
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      extensions: ["tex2jax.js"],
+      jax: ["input/TeX","output/HTML-CSS"],
+      "HTML-CSS": {
+        styles: {".MathJax_Preview": {visibility: "hidden"}}
+      },
+      tex2jax: {inlineMath: [["\\(","\\)"]]},
+      TeX: {extensions: ["AMSmath.js","AMSsymbols.js", "/static/xypic.js"]}
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/MathJax.js"></script>
 </head>
 <body>
 <!--
@@ -176,27 +38,45 @@
 <p>This is lifted from McBride’s <em>W-types: good news and bad
 news</em><a href="#fn1" class="footnote-ref" id="fnref1"
 role="doc-noteref"><sup>1</sup></a>. See the link in the footnote to
-follow along. Probably as I make progress I’ll updates here. But also
+follow along. Probably as I make progress I’ll update here. But also
 maybe not.</p>
-<pre class="Agda"><a id="330" class="Keyword">data</a> <a id="Bool"></a><a id="335" href="W.html#335" class="Datatype">Bool</a> <a id="340" class="Symbol">:</a> <a id="342" href="Agda.Primitive.html#311" class="Primitive">Set</a> <a id="346" class="Keyword">where</a>
-  <a id="Bool.true"></a><a id="354" href="W.html#354" class="InductiveConstructor">true</a> <a id="359" class="Symbol">:</a> <a id="361" href="W.html#335" class="Datatype">Bool</a>
-  <a id="Bool.false"></a><a id="368" href="W.html#368" class="InductiveConstructor">false</a> <a id="374" class="Symbol">:</a> <a id="376" href="W.html#335" class="Datatype">Bool</a>
+<pre class="Agda"><a id="329" class="Keyword">data</a> <a id="Bool"></a><a id="334" href="W.html#334" class="Datatype">Bool</a> <a id="339" class="Symbol">:</a> <a id="341" href="Agda.Primitive.html#311" class="Primitive">Set</a> <a id="345" class="Keyword">where</a>
+  <a id="Bool.true"></a><a id="353" href="W.html#353" class="InductiveConstructor">true</a> <a id="358" class="Symbol">:</a> <a id="360" href="W.html#334" class="Datatype">Bool</a>
+  <a id="Bool.false"></a><a id="367" href="W.html#367" class="InductiveConstructor">false</a> <a id="373" class="Symbol">:</a> <a id="375" href="W.html#334" class="Datatype">Bool</a>
 
-<a id="382" class="Keyword">data</a> <a id="W"></a><a id="387" href="W.html#387" class="Datatype">W</a> <a id="389" class="Symbol">(</a><a id="390" href="W.html#390" class="Bound">S</a> <a id="392" class="Symbol">:</a> <a id="394" href="Agda.Primitive.html#311" class="Primitive">Set</a><a id="397" class="Symbol">)</a> <a id="399" class="Symbol">(</a><a id="400" href="W.html#400" class="Bound">P</a> <a id="402" class="Symbol">:</a> <a id="404" href="W.html#390" class="Bound">S</a> <a id="406" class="Symbol">→</a> <a id="408" href="Agda.Primitive.html#311" class="Primitive">Set</a><a id="411" class="Symbol">)</a> <a id="413" class="Symbol">:</a> <a id="415" href="Agda.Primitive.html#311" class="Primitive">Set</a> <a id="419" class="Keyword">where</a>
-  <a id="W._◂_"></a><a id="427" href="W.html#427" class="InductiveConstructor Operator">_◂_</a> <a id="431" class="Symbol">:</a> <a id="433" class="Symbol">(</a><a id="434" href="W.html#434" class="Bound">s</a> <a id="436" class="Symbol">:</a> <a id="438" href="W.html#390" class="Bound">S</a><a id="439" class="Symbol">)</a> <a id="441" class="Symbol">(</a><a id="442" href="W.html#442" class="Bound">f</a> <a id="444" class="Symbol">:</a> <a id="446" href="W.html#400" class="Bound">P</a> <a id="448" href="W.html#434" class="Bound">s</a> <a id="450" class="Symbol">→</a> <a id="452" href="W.html#387" class="Datatype">W</a> <a id="454" href="W.html#390" class="Bound">S</a> <a id="456" href="W.html#400" class="Bound">P</a><a id="457" class="Symbol">)</a> <a id="459" class="Symbol">→</a> <a id="461" href="W.html#387" class="Datatype">W</a> <a id="463" href="W.html#390" class="Bound">S</a> <a id="465" href="W.html#400" class="Bound">P</a>
+<a id="381" class="Keyword">data</a> <a id="W"></a><a id="386" href="W.html#386" class="Datatype">W</a> <a id="388" class="Symbol">(</a><a id="389" href="W.html#389" class="Bound">S</a> <a id="391" class="Symbol">:</a> <a id="393" href="Agda.Primitive.html#311" class="Primitive">Set</a><a id="396" class="Symbol">)</a> <a id="398" class="Symbol">(</a><a id="399" href="W.html#399" class="Bound">P</a> <a id="401" class="Symbol">:</a> <a id="403" href="W.html#389" class="Bound">S</a> <a id="405" class="Symbol">→</a> <a id="407" href="Agda.Primitive.html#311" class="Primitive">Set</a><a id="410" class="Symbol">)</a> <a id="412" class="Symbol">:</a> <a id="414" href="Agda.Primitive.html#311" class="Primitive">Set</a> <a id="418" class="Keyword">where</a>
+  <a id="W._◂_"></a><a id="426" href="W.html#426" class="InductiveConstructor Operator">_◂_</a> <a id="430" class="Symbol">:</a> <a id="432" class="Symbol">(</a><a id="433" href="W.html#433" class="Bound">s</a> <a id="435" class="Symbol">:</a> <a id="437" href="W.html#389" class="Bound">S</a><a id="438" class="Symbol">)</a> <a id="440" class="Symbol">(</a><a id="441" href="W.html#441" class="Bound">f</a> <a id="443" class="Symbol">:</a> <a id="445" href="W.html#399" class="Bound">P</a> <a id="447" href="W.html#433" class="Bound">s</a> <a id="449" class="Symbol">→</a> <a id="451" href="W.html#386" class="Datatype">W</a> <a id="453" href="W.html#389" class="Bound">S</a> <a id="455" href="W.html#399" class="Bound">P</a><a id="456" class="Symbol">)</a> <a id="458" class="Symbol">→</a> <a id="460" href="W.html#386" class="Datatype">W</a> <a id="462" href="W.html#389" class="Bound">S</a> <a id="464" href="W.html#399" class="Bound">P</a>
 
-<a id="natf"></a><a id="468" href="W.html#468" class="Function">natf</a> <a id="473" class="Symbol">:</a> <a id="475" href="W.html#335" class="Datatype">Bool</a> <a id="480" class="Symbol">→</a> <a id="482" href="Agda.Primitive.html#311" class="Primitive">Set</a>
-<a id="486" href="W.html#468" class="Function">natf</a> <a id="491" href="W.html#354" class="InductiveConstructor">true</a> <a id="496" class="Symbol">=</a> <a id="498" href="Agda.Builtin.Unit.html#149" class="Record">⊤</a>
-<a id="500" href="W.html#468" class="Function">natf</a> <a id="505" href="W.html#368" class="InductiveConstructor">false</a> <a id="511" class="Symbol">=</a> <a id="513" href="Data.Empty.html#886" class="Function">⊥</a>
+<a id="natf"></a><a id="467" href="W.html#467" class="Function">natf</a> <a id="472" class="Symbol">:</a> <a id="474" href="W.html#334" class="Datatype">Bool</a> <a id="479" class="Symbol">→</a> <a id="481" href="Agda.Primitive.html#311" class="Primitive">Set</a>
+<a id="485" href="W.html#467" class="Function">natf</a> <a id="490" href="W.html#353" class="InductiveConstructor">true</a> <a id="495" class="Symbol">=</a> <a id="497" href="Agda.Builtin.Unit.html#149" class="Record">⊤</a>
+<a id="499" href="W.html#467" class="Function">natf</a> <a id="504" href="W.html#367" class="InductiveConstructor">false</a> <a id="510" class="Symbol">=</a> <a id="512" href="Data.Empty.html#886" class="Function">⊥</a>
 
-<a id="ℕ"></a><a id="516" href="W.html#516" class="Function">ℕ</a> <a id="518" class="Symbol">:</a> <a id="520" href="Agda.Primitive.html#311" class="Primitive">Set</a>
-<a id="524" href="W.html#516" class="Function">ℕ</a> <a id="526" class="Symbol">=</a> <a id="528" href="W.html#387" class="Datatype">W</a> <a id="530" href="W.html#335" class="Datatype">Bool</a> <a id="535" href="W.html#468" class="Function">natf</a>
+<a id="ℕ"></a><a id="515" href="W.html#515" class="Function">ℕ</a> <a id="517" class="Symbol">:</a> <a id="519" href="Agda.Primitive.html#311" class="Primitive">Set</a>
+<a id="523" href="W.html#515" class="Function">ℕ</a> <a id="525" class="Symbol">=</a> <a id="527" href="W.html#386" class="Datatype">W</a> <a id="529" href="W.html#334" class="Datatype">Bool</a> <a id="534" href="W.html#467" class="Function">natf</a>
 
-<a id="zero"></a><a id="541" href="W.html#541" class="Function">zero</a> <a id="546" class="Symbol">:</a> <a id="548" href="W.html#516" class="Function">ℕ</a>
-<a id="550" href="W.html#541" class="Function">zero</a> <a id="555" class="Symbol">=</a> <a id="557" href="W.html#368" class="InductiveConstructor">false</a> <a id="563" href="W.html#427" class="InductiveConstructor Operator">◂</a> <a id="565" class="Symbol">λ</a> <a id="567" class="Symbol">()</a> 
+<a id="zero"></a><a id="540" href="W.html#540" class="Function">zero</a> <a id="545" class="Symbol">:</a> <a id="547" href="W.html#515" class="Function">ℕ</a>
+<a id="549" href="W.html#540" class="Function">zero</a> <a id="554" class="Symbol">=</a> <a id="556" href="W.html#367" class="InductiveConstructor">false</a> <a id="562" href="W.html#426" class="InductiveConstructor Operator">◂</a> <a id="564" class="Symbol">λ</a> <a id="566" class="Symbol">()</a> 
 
-<a id="succ"></a><a id="572" href="W.html#572" class="Function">succ</a> <a id="577" class="Symbol">:</a> <a id="579" href="W.html#516" class="Function">ℕ</a> <a id="581" class="Symbol">→</a> <a id="583" href="W.html#516" class="Function">ℕ</a>
-<a id="585" href="W.html#572" class="Function">succ</a> <a id="590" href="W.html#590" class="Bound">n</a> <a id="592" class="Symbol">=</a> <a id="594" href="W.html#354" class="InductiveConstructor">true</a> <a id="599" href="W.html#427" class="InductiveConstructor Operator">◂</a> <a id="601" class="Symbol">(λ</a> <a id="604" href="W.html#604" class="Bound">_</a> <a id="606" class="Symbol">→</a> <a id="608" href="W.html#590" class="Bound">n</a><a id="609" class="Symbol">)</a>
+<a id="succ"></a><a id="571" href="W.html#571" class="Function">succ</a> <a id="576" class="Symbol">:</a> <a id="578" href="W.html#515" class="Function">ℕ</a> <a id="580" class="Symbol">→</a> <a id="582" href="W.html#515" class="Function">ℕ</a>
+<a id="584" href="W.html#571" class="Function">succ</a> <a id="589" href="W.html#589" class="Bound">n</a> <a id="591" class="Symbol">=</a> <a id="593" href="W.html#353" class="InductiveConstructor">true</a> <a id="598" href="W.html#426" class="InductiveConstructor Operator">◂</a> <a id="600" class="Symbol">(λ</a> <a id="603" href="W.html#603" class="Bound">_</a> <a id="605" class="Symbol">→</a> <a id="607" href="W.html#589" class="Bound">n</a><a id="608" class="Symbol">)</a>
+
+</pre>
+<p>Turns out this probably isn’t possible. I didn’t take it as far as
+McBride did, but I think his conclusion is relevant here:</p>
+<blockquote>
+<p>W-types are a powerful conceptual tool, but they’re no basis for an
+implementation of recursive datatypes in decidable type theories. <em>To
+encode a first-order structure by a function space is to throw away
+canonical choice of representation.</em> When you care about what things
+are (because they show up in types), not just what they do (when you run
+them), that price isn’t worth paying.</p>
+</blockquote>
+<p>(emphasis mine)</p>
+<pre class="Agda"><a id="1162" class="Comment">-- _+_ : ℕ → ℕ → ℕ</a>
+<a id="1181" class="Comment">-- (false ◂ _) + m = m</a>
+<a id="1204" class="Comment">-- (t ◂ f) + m = succ (n + m)</a>
+<a id="1234" class="Comment">--   where</a>
+<a id="1245" class="Comment">--     n = f {!!}</a>
 </pre>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
