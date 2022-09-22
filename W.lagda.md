@@ -13,6 +13,8 @@ open import Data.Empty
 ```
 -->
 
+# W-Types, and how?
+
 This is lifted from McBride's _W-types: good news and bad
 news_[^1]. See the link in the footnote to follow along. Probably as I
 make progress I'll update here. But also maybe not.

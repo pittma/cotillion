@@ -7,3 +7,5 @@ for i in `find html -name "*.md"`; do
   pandoc --standalone $i --template template.html -o html/$title.html
   rm $i
 done
+
+mv html/Index.html html/index.html
