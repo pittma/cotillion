@@ -9,3 +9,4 @@ for i in `find html -name "*.md"`; do
 done
 
 mv html/Index.html html/index.html
+cp -r static html
