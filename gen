@@ -1,9 +1,9 @@
 #! /bin/bash
 
-agda --html --html-highlight=auto --html-dir=docs Index.lagda.md
+agda --html --html-highlight=auto --html-dir=html Index.lagda.md
 
-for i in `find docs -name "*.md"`; do
+for i in `find html -name "*.md"`; do
   title=$(echo $i | awk 'BEGIN{FS="[.,/]"}{print $2}')
-  pandoc --standalone $i --template template.html -o docs/$title.html
+  pandoc --standalone $i --template template.html -o html/$title.html
   rm $i
 done
