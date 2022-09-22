@@ -47,8 +47,8 @@ McBride did, but I think his conclusion is relevant here:
 
 > W-types are a powerful conceptual tool, but they’re no basis for an
   implementation of recursive datatypes in decidable type
-  theories. *To encode a first-order structure by a function space is
-  to throw away canonical choice of representation.* When you care
+  theories. **To encode a first-order structure by a function space is
+  to throw away canonical choice of representation.** When you care
   about what things are (because they show up in types), not just what
   they do (when you run them), that price isn’t worth paying.
 

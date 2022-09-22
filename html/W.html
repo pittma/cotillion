@@ -66,18 +66,18 @@ maybe not.</p>
 McBride did, but I think his conclusion is relevant here:</p>
 <blockquote>
 <p>W-types are a powerful conceptual tool, but they’re no basis for an
-implementation of recursive datatypes in decidable type theories. <em>To
-encode a first-order structure by a function space is to throw away
-canonical choice of representation.</em> When you care about what things
-are (because they show up in types), not just what they do (when you run
-them), that price isn’t worth paying.</p>
+implementation of recursive datatypes in decidable type theories.
+<strong>To encode a first-order structure by a function space is to
+throw away canonical choice of representation.</strong> When you care
+about what things are (because they show up in types), not just what
+they do (when you run them), that price isn’t worth paying.</p>
 </blockquote>
 <p>(emphasis mine)</p>
-<pre class="Agda"><a id="1183" class="Comment">-- _+_ : ℕ → ℕ → ℕ</a>
-<a id="1202" class="Comment">-- (false ◂ _) + m = m</a>
-<a id="1225" class="Comment">-- (t ◂ f) + m = succ (n + m)</a>
-<a id="1255" class="Comment">--   where</a>
-<a id="1266" class="Comment">--     n = f {!!}</a>
+<pre class="Agda"><a id="1185" class="Comment">-- _+_ : ℕ → ℕ → ℕ</a>
+<a id="1204" class="Comment">-- (false ◂ _) + m = m</a>
+<a id="1227" class="Comment">-- (t ◂ f) + m = succ (n + m)</a>
+<a id="1257" class="Comment">--   where</a>
+<a id="1268" class="Comment">--     n = f {!!}</a>
 </pre>
 <section id="footnotes" class="footnotes footnotes-end-of-document"
 role="doc-endnotes">
