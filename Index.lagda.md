@@ -2,8 +2,6 @@
 title: "Cotillion: A very formal place"
 ---
 
-# Cotillion: A very formal place
-
 <!--
 ```agda
 module Index where

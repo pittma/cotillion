@@ -11,10 +11,9 @@ html {
 }
 body {
   margin: 0 auto;
-  max-width: 36em;
+  max-width: 70%;
   padding-left: 50px;
   padding-right: 50px;
-  padding-top: 50px;
   padding-bottom: 50px;
   hyphens: auto;
   overflow-wrap: break-word;
@@ -154,3 +153,11 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+
+#title {
+    margin-top: 0;
+    font-size: 3em;
+    font-family: Arial, sans serif;
+    text-align: center;
+    background-color: #f0f0f0;
+}

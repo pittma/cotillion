@@ -1,12 +1,15 @@
 #! /bin/bash
 
-agda --html --html-highlight=auto --html-dir=html Index.lagda.md
+if [[ "$1" == "all" ]]; then
+  agda --html --html-highlight=auto --html-dir=html Index.lagda.md
+  
+  for i in `find html -name "*.md"`; do
+    title=$(echo $i | awk 'BEGIN{FS="[.,/]"}{print $2}')
+    pandoc --standalone $i --template template.html -o html/$title.html
+    rm $i
+  done
+  
+  mv html/Index.html html/index.html
+fi
 
-for i in `find html -name "*.md"`; do
-  title=$(echo $i | awk 'BEGIN{FS="[.,/]"}{print $2}')
-  pandoc --standalone $i --template template.html -o html/$title.html
-  rm $i
-done
-
-mv html/Index.html html/index.html
 cp -r static html
