@@ -10,7 +10,7 @@ module Index where
 ```
 -->
 
-`W` is a little exploration with W-Types.
+A little exploration with W-Types.
 
 ```
 import W
