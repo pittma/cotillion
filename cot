@@ -1,0 +1,69 @@
+#! /bin/bash
+
+static() {
+  cp -r static html
+}    
+
+build() {
+  agda --html --html-highlight=auto --html-dir=html Index.lagda.md
+    
+  for i in `find html -name "*.md"`; do
+    title=$(echo $i | awk 'BEGIN{FS="[.,/]"}{print $2}')
+    pandoc --standalone $i --template template.html -o html/$title.html
+    rm $i
+  done
+    
+  mv html/Index.html html/index.html
+}
+
+usage() {
+  echo "$0: A minimal Agda static-site generator."
+  echo "USAGE: $0 [SUBCOMMAND]"
+  echo "Subcommands:"
+  echo "  all:       Build and copy both the Adga files and the static files into the html directory."
+  echo "  static:    Copy the static files into the html directory."
+  echo "  serve:     Start a webserver in the html directory."
+  echo "  new [NAME] Start a new Cotillion project."
+}
+
+new() {
+  if [ -z "$1" ]; then
+    echo "error: missing a name/path"
+    echo ""
+    usage
+    exit 1
+  fi
+
+  mkdir $1
+  (
+    cd $1
+    mkdir html
+    mkdir static
+    echo "module Index where" > Index.lagda.md
+  )
+}
+
+case $1 in
+  -h|--help)
+    usage
+    ;;
+  all)
+    build
+    static
+    ;;
+  static)
+    static
+    ;;
+  serve)
+    (
+      cd html
+      python3 -m http.server
+    )
+    ;;
+  new)
+    new $2
+    ;;
+  *)
+    echo "I don't know what to do with \"$1\""
+    ;;
+esac

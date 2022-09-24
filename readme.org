@@ -1,5 +1,0 @@
-#+TITLE: Cotillion
-#+SUBTITLE: A place for me to keep the random formalizations I'm piddling with.
-
-*Note:* See [[literate-agda.org][literate-agda.org]] for details on building and working with
- literate agda files.
